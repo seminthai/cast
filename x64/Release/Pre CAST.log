@@ -1,0 +1,2 @@
+﻿C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VC\v180\Microsoft.CppBuild.targets(551,5): warning MSB8028: промежуточный каталог (x64\Release\) содержит файлы, которые используются совместно с другим проектом (Pre CAST.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  Pre CAST.vcxproj -> C:\Users\HP\source\repos\Pre CAST\x64\Release\cast.exe
