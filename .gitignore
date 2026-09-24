@@ -1,0 +1,12 @@
+.vs/ 
+x64/ 
+Debug/ 
+Release/ 
+*.user 
+*.suo 
+*.db 
+*.opendb 
+*.raw 
+*.avi 
+*.cast 
+restored*.avi 
