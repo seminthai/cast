@@ -10,3 +10,7 @@ Release/
 *.avi 
 *.cast 
 restored*.avi 
+out/
+build/
+.vs/
+
