@@ -28,13 +28,13 @@ if(MSVC)
         /O2          # Maximize speed optimization
         /Ot          # Favor fast code over small code size
         /Oi          # Enable intrinsic functions generation
-        # ⚡ AVX2 vector extensions for hardware SIMD speedup on binary streams
+        # AVX2 vector extensions for hardware SIMD speedup on binary streams
         /arch:AVX2   
         /permissive- # Enforce strict C++ standard conformance
         /D_CRT_SECURE_NO_WARNINGS # Suppress legacy MSVC security warnings
     )
     
-    # 💎 Enable Link-Time Optimization (LTO / GL) for cross-module optimization
+    # Enable Link-Time Optimization (LTO / GL) for cross-module optimization
     set_target_properties(${PROJECT_NAME} PROPERTIES 
         INTERPROCEDURAL_OPTIMIZATION_RELEASE ON
     )
