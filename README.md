@@ -31,13 +31,39 @@ cast -d compressed.cast restored.raw
 ```
 
 ### 2. High-Speed Pipeline Conveyors (Streaming)
+
+#### Linux / macOS (Native Byte Streams)
+On UNIX-based systems, native utilities handle raw binary data across pipes seamlessly.
+
 ```bash
 # Stream compression into an archive file
 cat data.raw | cast -c - compressed.cast
 
 # Real-time full end-to-end processing cascade via pipes
+cat video.avi | cast -c - - | cast -d - restored_pipe.avi
+```
+
+#### Windows (CMD & PowerShell Compatibility)
+> ⚠️ **Important:** Windows PowerShell treats the pipeline operator `|` as a text stream, which corrupts binary data. To stream data safely, the entire conveyor pipe must run inside the native `cmd.exe` engine.
+
+* **Option A: Inside PowerShell (Encapsulated CMD execution)**
+```powershell
+# Stream compression
+cmd /c "type data.raw | cast -c - compressed.cast"
+
+# End-to-end processing cascade
+cmd /c "type video.avi | cast -c - - | cast -d - restored_pipe.avi"
+```
+
+* **Option B: Inside classic Command Prompt (CMD)**
+```cmd
+# Stream compression
+type data.raw | cast -c - compressed.cast
+
+# End-to-end processing cascade
 type video.avi | cast -c - - | cast -d - restored_pipe.avi
 ```
+
 
 ## Repository Structure
 
