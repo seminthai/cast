@@ -21,9 +21,24 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 # Link OpenMP libraries to the target
 target_link_libraries(${PROJECT_NAME} PRIVATE OpenMP::OpenMP_CXX)
 
-# Configure compiler warnings based on the toolchain
+# Configure advanced compiler options based on the toolchain
 if(MSVC)
-    target_compile_options(${PROJECT_NAME} PRIVATE /W4)
+    target_compile_options(${PROJECT_NAME} PRIVATE 
+        /W4          # High warning level
+        /O2          # Maximize speed optimization
+        /Ot          # Favor fast code over small code size
+        /Oi          # Enable intrinsic functions generation
+        # ⚡ AVX2 vector extensions for hardware SIMD speedup on binary streams
+        /arch:AVX2   
+        /permissive- # Enforce strict C++ standard conformance
+        /D_CRT_SECURE_NO_WARNINGS # Suppress legacy MSVC security warnings
+    )
+    
+    # 💎 Enable Link-Time Optimization (LTO / GL) for cross-module optimization
+    set_target_properties(${PROJECT_NAME} PROPERTIES 
+        INTERPROCEDURAL_OPTIMIZATION_RELEASE ON
+    )
 else()
-    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)
+    # Fallback flags for GCC/Clang environments
+    target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -O3 -march=native)
 endif()
