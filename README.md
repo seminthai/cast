@@ -73,4 +73,7 @@ type video.avi | cast -c - - | cast -d - restored_pipe.avi
 
 ## License
 
-This project is open-source and available under the MIT License.
+This project is dual-licensed to balance open scientific collaboration with proprietary commercial protection:
+1. Open Source & Academic Use: The source code is published under the standard GNU GPLv3 license (see the LICENSE file). It is fully open for academic research, independent auditing, and non-commercial development. Anyone using or modifying this code under GPLv3 must keep their derived works open-source under the same license terms.
+2. Commercial Use: Integrating, copying, or implementing the core byte-oriented streaming architecture, zero-allocation transformation engine, or source code of this transcoder into closed-source commercial hardware, proprietary software products, enterprise data pipelines, cloud streaming services, or software-as-a-service (SaaS) platforms is strictly prohibited under the GPLv3 terms (as it legally requires disclosing your proprietary infrastructure code).
+Commercial deployment or proprietary implementation of the cast technology is permissible solely upon executing a Private Commercial Agreement with the copyright holder.
